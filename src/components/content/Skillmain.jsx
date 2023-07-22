@@ -20,14 +20,23 @@ ChartJS.register(
 )
 
 export const data = {
-  labels: ['Thing 1', 'Thing 2', 'Thing 3', 'Thing 4', 'Thing 5', 'Thing 6'],
+  labels: [
+    'JS/Jquery/DOM',
+    'React/Native',
+    'Axios/Https',
+    'Build APIs',
+    'PHP 7,8',
+    'express',
+    'angular',
+    'git',
+  ],
   datasets: [
     {
       label: '# of Votes',
-      data: [5, 9, 7, 5, 6, 3],
-      backgroundColor: 'rgba(255, 99, 132, 0.2)',
-      borderColor: 'rgba(255, 99, 132, 1)',
-      borderWidth: 1,
+      data: [8.5, 9.3, 7, 6, 7.5, 7.75, 3.84, 6.78],
+      backgroundColor: 'rgba(0, 160, 255, 0.22)',
+      borderColor: 'rgba(0, 50, 255, 0.9)',
+      borderWidth: 2,
     },
   ],
 }
