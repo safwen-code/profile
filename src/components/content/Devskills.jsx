@@ -8,9 +8,13 @@ import {
   Typography,
   CardActions,
   Button,
-  Divider,
 } from '@mui/material'
 import { deepOrange } from '@mui/material/colors'
+import gomy from '../../images/gomy.png'
+import iset from '../../images/iset.jpg'
+import open from '../../images/open.png'
+import bqube from '../../images/bqube.jpg'
+import tim from '../../images/tim.jpg'
 
 const Devskills = (props) => {
   return (
@@ -22,11 +26,7 @@ const Devskills = (props) => {
             <CardHeader
               title="Go My Code"
               subheader="October 2019, 2020"
-              avatar={
-                <Avatar sx={{ bgcolor: deepOrange[500] }} aria-label="recipe">
-                  GO
-                </Avatar>
-              }
+              avatar={<Avatar aria-label="recipe" src={gomy} />}
             />
             <CardContent>
               <Typography variant="body2" color="text.secondary">
@@ -51,11 +51,7 @@ const Devskills = (props) => {
             <CardHeader
               title="Open Classroom"
               subheader="October 2018, 2023"
-              avatar={
-                <Avatar sx={{ bgcolor: deepOrange[500] }} aria-label="recipe">
-                  OP
-                </Avatar>
-              }
+              avatar={<Avatar aria-label="recipe" src={open} />}
             />
             <CardContent>
               <Typography variant="body2" color="text.secondary">
@@ -81,9 +77,11 @@ const Devskills = (props) => {
               title="ISET"
               subheader="October 2013, 2017"
               avatar={
-                <Avatar sx={{ bgcolor: deepOrange[500] }} aria-label="recipe">
-                  ISET
-                </Avatar>
+                <Avatar
+                  sx={{ bgcolor: deepOrange[500] }}
+                  aria-label="recipe"
+                  src={iset}
+                />
               }
             />
             <CardContent>
@@ -113,11 +111,7 @@ const Devskills = (props) => {
             <CardHeader
               title="Bqubeits"
               subheader="October 2021, 2023"
-              avatar={
-                <Avatar sx={{ bgcolor: deepOrange[500] }} aria-label="recipe">
-                  B
-                </Avatar>
-              }
+              avatar={<Avatar aria-label="recipe" src={bqube} />}
             />
             <CardContent>
               <Typography variant="body2" color="text.secondary">
@@ -142,11 +136,7 @@ const Devskills = (props) => {
             <CardHeader
               title="Timelec"
               subheader="October 2020, 2021"
-              avatar={
-                <Avatar sx={{ bgcolor: deepOrange[500] }} aria-label="recipe">
-                  Tim
-                </Avatar>
-              }
+              avatar={<Avatar aria-label="recipe" src={tim} />}
             />
             <CardContent>
               <Typography variant="body2" color="text.secondary">
