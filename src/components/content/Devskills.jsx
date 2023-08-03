@@ -8,6 +8,7 @@ import {
   Typography,
   CardActions,
   Button,
+  Divider,
 } from '@mui/material'
 import { deepOrange } from '@mui/material/colors'
 import gomy from '../../images/gomy.png'
@@ -15,7 +16,8 @@ import iset from '../../images/iset.jpg'
 import open from '../../images/open.png'
 import bqube from '../../images/bqube.jpg'
 import tim from '../../images/tim.jpg'
-
+import simac from '../../images/simac.jpg'
+import intercom from '../../images/intercom.png'
 const Devskills = (props) => {
   return (
     <>
@@ -153,6 +155,83 @@ const Devskills = (props) => {
               >
                 {' '}
                 Operateur Du Montage
+              </Typography>
+              <Button size="small">Show more</Button>
+            </CardActions>
+          </Card>
+          <Divider light />
+          <div style={{ marginTop: '7px' }}>Stages</div>
+          <Card sx={{ maxWidth: 345 }} style={{ marginBottom: '8px' }}>
+            <CardHeader
+              title="ISET"
+              subheader="October 2017"
+              avatar={<Avatar aria-label="recipe" src={iset} />}
+            />
+            <CardContent>
+              <Typography variant="body2" color="text.secondary">
+                Développer une application web pour la ressource pédagogique de
+                notre insitut.
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Typography
+                subtitle2="h6"
+                color="text.secondary"
+                style={{ fontSize: '0.9rem' }}
+                mr={3}
+              >
+                {' '}
+                Developpeur Full Stack (PFE)
+              </Typography>
+              <Button size="small">Show more</Button>
+            </CardActions>
+          </Card>
+          <Card sx={{ maxWidth: 345 }} style={{ marginBottom: '8px' }}>
+            <CardHeader
+              title="Intercom Technologies"
+              subheader="October 2017"
+              avatar={<Avatar aria-label="recipe" src={intercom} />}
+            />
+            <CardContent>
+              <Typography variant="body2" color="text.secondary">
+                Concepter et développer une application web dynamique pour la
+                gestion de ressource Humaines d’équipe comsis.
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Typography
+                subtitle2="h6"
+                color="text.secondary"
+                style={{ fontSize: '0.9rem' }}
+                mr={3}
+              >
+                {' '}
+                Technicien Supérieur
+              </Typography>
+              <Button size="small">Show more</Button>
+            </CardActions>
+          </Card>
+          <Card sx={{ maxWidth: 345 }} style={{ marginBottom: '8px' }}>
+            <CardHeader
+              title="SIMAC Tunisie"
+              subheader="October 2016"
+              avatar={<Avatar aria-label="recipe" src={simac} />}
+            />
+            <CardContent>
+              <Typography variant="body2" color="text.secondary">
+                Découvrir les compétences de base de développment tel que html,
+                css, Javascript et DOM.
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Typography
+                subtitle2="h6"
+                color="text.secondary"
+                style={{ fontSize: '0.9rem' }}
+                mr={3}
+              >
+                {' '}
+                Technicien
               </Typography>
               <Button size="small">Show more</Button>
             </CardActions>
