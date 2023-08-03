@@ -11,7 +11,7 @@ import Button from '@mui/material/Button'
 import MenuItem from '@mui/material/MenuItem'
 import AdbIcon from '@mui/icons-material/Adb'
 
-const pages = ['description', 'project', 'skills']
+const pages = ['description', 'project', 'skills', 'SW.Skills']
 
 const Navbar = ({ activeNavItem, setActiveNavItem }) => {
   const [anchorElNav, setAnchorElNav] = useState(null)
@@ -30,6 +30,8 @@ const Navbar = ({ activeNavItem, setActiveNavItem }) => {
         return setActiveNavItem('project')
       case 'skills':
         return setActiveNavItem('skills')
+      case 'SW.Skills':
+        return setActiveNavItem('SW.Skills')
       default:
         return setActiveNavItem('description')
     }
@@ -45,6 +47,8 @@ const Navbar = ({ activeNavItem, setActiveNavItem }) => {
         return setActiveNavItem('project')
       case 'skills':
         return setActiveNavItem('skills')
+      case 'SW.Skills':
+        return setActiveNavItem('SW.Skills')
       default:
         return setActiveNavItem('description')
     }
