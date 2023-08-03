@@ -11,7 +11,7 @@ const Containers = ({ activeNavItem }) => {
       {activeNavItem === 'description' && <Description />}
       {activeNavItem === 'project' && <Project />}
       {activeNavItem === 'skills' && <Skillmain />}
-      {activeNavItem === 'devskills' && <Devskills />}
+      {activeNavItem === 'SW.Skills' && <Devskills />}
       {activeNavItem === 'contact' && <Contact />}
     </div>
   )
