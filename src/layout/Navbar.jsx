@@ -1,17 +1,22 @@
 import React, { useState } from 'react'
-import AppBar from '@mui/material/AppBar'
-import Box from '@mui/material/Box'
-import Toolbar from '@mui/material/Toolbar'
-import IconButton from '@mui/material/IconButton'
-import Typography from '@mui/material/Typography'
-import Menu from '@mui/material/Menu'
-import MenuIcon from '@mui/icons-material/Menu'
-import Container from '@mui/material/Container'
-import Button from '@mui/material/Button'
-import MenuItem from '@mui/material/MenuItem'
-import AdbIcon from '@mui/icons-material/Adb'
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  Typography,
+  Menu,
+  Button,
+  Container,
+  MenuItem,
+  Avatar,
+} from '@mui/material'
 
-const pages = ['description', 'project', 'skills', 'SW.Skills']
+import IconButton from '@mui/material/IconButton'
+import MenuIcon from '@mui/icons-material/Menu'
+import AdbIcon from '@mui/icons-material/Adb'
+import safwe from '../images/safwe.jpg'
+
+const pages = ['description', 'project', 'skills', 'SW.Skills', 'contact']
 
 const Navbar = ({ activeNavItem, setActiveNavItem }) => {
   const [anchorElNav, setAnchorElNav] = useState(null)
@@ -32,6 +37,8 @@ const Navbar = ({ activeNavItem, setActiveNavItem }) => {
         return setActiveNavItem('skills')
       case 'SW.Skills':
         return setActiveNavItem('SW.Skills')
+      case 'contact':
+        return setActiveNavItem('contact')
       default:
         return setActiveNavItem('description')
     }
@@ -49,6 +56,8 @@ const Navbar = ({ activeNavItem, setActiveNavItem }) => {
         return setActiveNavItem('skills')
       case 'SW.Skills':
         return setActiveNavItem('SW.Skills')
+      case 'contact':
+        return setActiveNavItem('contact')
       default:
         return setActiveNavItem('description')
     }
@@ -59,7 +68,10 @@ const Navbar = ({ activeNavItem, setActiveNavItem }) => {
       <AppBar position="static" sx={{ borderRadius: 2 }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
-            <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+            <Avatar
+              src={safwe}
+              sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}
+            />
             <Typography
               variant="h6"
               noWrap
@@ -75,7 +87,7 @@ const Navbar = ({ activeNavItem, setActiveNavItem }) => {
                 textDecoration: 'none',
               }}
             >
-              LOGO
+              Djebbi
             </Typography>
 
             <Box
@@ -124,7 +136,10 @@ const Navbar = ({ activeNavItem, setActiveNavItem }) => {
                 ))}
               </Menu>
             </Box>
-            <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+            <Avatar
+              src={safwe}
+              sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }}
+            />
             <Typography
               variant="h5"
               noWrap
@@ -141,7 +156,7 @@ const Navbar = ({ activeNavItem, setActiveNavItem }) => {
                 textDecoration: 'none',
               }}
             >
-              LOGO
+              DJEBBI
             </Typography>
 
             <Box
