@@ -13,8 +13,16 @@ import {
 import developpement from '../../images/development.png'
 import api from '../../images/api.jpg'
 import uimang from '../../images/uimang.png'
+import { Link } from 'react-router-dom'
+
+import apprelease from './app-release.apk'
+import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown'
+import AirlineStopsIcon from '@mui/icons-material/AirlineStops'
 
 const Project = () => {
+  const download = () => {
+    window.location.href = apprelease
+  }
   return (
     <>
       <Typography variant="h3" component="h3" align="left" ml={2}>
@@ -57,7 +65,16 @@ const Project = () => {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small">Created 3 years ago</Button>
+              <Link
+                to="https://clever-cray-85c961.netlify.app/"
+                target="_blank"
+              >
+                {' '}
+                <Button size="small">
+                  Created 3 years ago{' '}
+                  <AirlineStopsIcon sx={{ marginLeft: '7px' }} />
+                </Button>
+              </Link>
             </CardActions>
           </Card>
         </Grid>
@@ -78,7 +95,12 @@ const Project = () => {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small">Created 2years ago</Button>
+              <Link to="https://qrqc.netlify.app/" target="_blank">
+                <Button size="small">
+                  Created 2years ago{' '}
+                  <AirlineStopsIcon sx={{ marginLeft: '7px' }} />
+                </Button>
+              </Link>
             </CardActions>
           </Card>
         </Grid>
@@ -99,7 +121,9 @@ const Project = () => {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small">Created yesterday.</Button>
+              <Button size="small">
+                You are here <AirlineStopsIcon sx={{ marginLeft: '7px' }} />
+              </Button>
             </CardActions>
           </Card>
         </Grid>
@@ -120,7 +144,10 @@ const Project = () => {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small">Created yesterday.</Button>
+              <Button size="small" onClick={download}>
+                Created yesterday 2 week ago{' '}
+                <ArrowCircleDownIcon sx={{ marginLeft: '7px' }} />
+              </Button>
             </CardActions>
           </Card>
         </Grid>
