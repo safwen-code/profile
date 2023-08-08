@@ -18,12 +18,35 @@ import bqube from '../../images/bqube.jpg'
 import tim from '../../images/tim.jpg'
 import simac from '../../images/simac.jpg'
 import intercom from '../../images/intercom.png'
+
+import { Tilt } from 'react-tilt'
+
+const defaultOptions = {
+  reverse: false, // reverse the tilt direction
+  max: 35, // max tilt rotation (degrees)
+  perspective: 1000, // Transform perspective, the lower the more extreme the tilt gets.
+  scale: 1.1, // 2 = 200%, 1.5 = 150%, etc..
+  speed: 1000, // Speed of the enter/exit transition
+  transition: true, // Set a transition on enter/exit.
+  axis: null, // What axis should be disabled. Can be X or Y.
+  reset: true, // If the tilt effect has to be reset on exit.
+  easing: 'cubic-bezier(.03,.98,.52,.99)', // Easing on enter/exit.
+}
+
+const styletitle = {
+  fontZize: '2rem',
+  fontWeight: 'bold',
+  color: '#3f50b5',
+  marginBottom: '10px',
+  textAlign: 'center',
+  textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)',
+}
 const Devskills = (props) => {
   return (
     <>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
-          <div style={{ border: '1px solid #000000' }}>Education</div>
+          <div style={styletitle}>Education</div>
           <Card sx={{ maxWidth: 345 }} style={{ marginBottom: '8px' }}>
             <CardHeader
               title="Go My Code"
@@ -46,7 +69,6 @@ const Devskills = (props) => {
                 {' '}
                 Developpeur Full Stack
               </Typography>
-              <Button size="small">Show more</Button>
             </CardActions>
           </Card>
           <Card sx={{ maxWidth: 345 }} style={{ marginBottom: '8px' }}>
@@ -71,9 +93,9 @@ const Devskills = (props) => {
                 {' '}
                 Developpeur
               </Typography>
-              <Button size="small">Show more</Button>
             </CardActions>
           </Card>
+
           <Card sx={{ maxWidth: 345 }} style={{ marginBottom: '8px' }}>
             <CardHeader
               title="ISET"
@@ -102,13 +124,13 @@ const Devskills = (props) => {
                 {' '}
                 Technicien Supérieur En Développment
               </Typography>
-              <Button size="small">Show more</Button>
             </CardActions>
           </Card>
         </Grid>
 
         <Grid item xs={12} sm={6}>
-          <div>Experience</div>
+          <div style={styletitle}>Experience</div>
+
           <Card sx={{ maxWidth: 345 }} style={{ marginBottom: '8px' }}>
             <CardHeader
               title="Bqubeits"
@@ -160,7 +182,7 @@ const Devskills = (props) => {
             </CardActions>
           </Card>
           <Divider light />
-          <div style={{ marginTop: '7px' }}>Stages</div>
+          <div style={styletitle}>Stages</div>
           <Card sx={{ maxWidth: 345 }} style={{ marginBottom: '8px' }}>
             <CardHeader
               title="ISET"
@@ -211,6 +233,7 @@ const Devskills = (props) => {
               <Button size="small">Show more</Button>
             </CardActions>
           </Card>
+
           <Card sx={{ maxWidth: 345 }} style={{ marginBottom: '8px' }}>
             <CardHeader
               title="SIMAC Tunisie"
