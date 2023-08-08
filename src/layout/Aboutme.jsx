@@ -1,15 +1,18 @@
 import React from 'react'
 import Typewriter from 'typewriter-effect'
 
-import Avatar from '@mui/material/Avatar'
-import Box from '@mui/material/Box'
-import List from '@mui/material/List'
-import ListItem from '@mui/material/ListItem'
-import ListItemText from '@mui/material/ListItemText'
-import Divider from '@mui/material/Divider'
-import ListItemButton from '@mui/material/ListItemButton'
-import ListItemIcon from '@mui/material/ListItemIcon'
-import Button from '@mui/material/Button'
+import {
+  Button,
+  ListItemIcon,
+  ListItemButton,
+  Divider,
+  ListItemText,
+  ListItem,
+  Typography,
+  List,
+  Avatar,
+  Box,
+} from '@mui/material'
 
 import GitHubIcon from '@mui/icons-material/GitHub'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
@@ -20,25 +23,34 @@ import PinDropIcon from '@mui/icons-material/PinDrop'
 import CakeIcon from '@mui/icons-material/Cake'
 import CloudDownloadIcon from '@mui/icons-material/CloudDownload'
 
+import './style.css'
+import cv from './cv.pdf'
+import { saveAs } from 'file-saver'
+
 const style = {
   width: '100%',
   maxWidth: 360,
   bgcolor: 'background.paper',
 }
 
+let styles = {
+  fontFamily: 'DethronePoliceSerifModerne, serif',
+  fontSize: '34px',
+}
+
 const Aboutme = () => {
   const DownloadCV = async () => {
     console.log('download')
-    //console.log(file)
-    // fetch(cvpdf)
-    //   .then((response) => response.blob())
-    //   .then((blob) => {
-    //     // Trigger the download using FileSaver.js
-    //     saveAs(blob, 'DS-FullStackDev.pdf')
-    //   })
-    //   .catch((error) => {
-    //     console.error('Error downloading the file:', error)
-    //   })
+    //console.log(cv)
+    fetch(cv)
+      .then((response) => response.blob())
+      .then((blob) => {
+        // Trigger the download using FileSaver.js
+        saveAs(blob, 'DS-FullStackDev.pdf')
+      })
+      .catch((error) => {
+        console.error('Error downloading the file:', error)
+      })
   }
 
   return (
@@ -54,7 +66,11 @@ const Aboutme = () => {
               display: 'flex',
               justifyContent: 'center',
             }}
-            primary="Djebbi Safwen"
+            primary={
+              <Typography variant="body1" style={styles}>
+                Djebbi Safwen
+              </Typography>
+            }
           />
         </ListItem>
         <Divider />
@@ -65,6 +81,7 @@ const Aboutme = () => {
               display: 'flex',
               justifyContent: 'center',
             }}
+            style={{ fontFamily: 'cursive' }}
             primary={
               <Typewriter
                 options={{
@@ -72,6 +89,7 @@ const Aboutme = () => {
                     'FullStack Developper',
                     'Web Developper',
                     'Software Engineer',
+                    'Mobile Developepr',
                   ],
                   autoStart: true,
                   loop: true,
@@ -125,7 +143,7 @@ const Aboutme = () => {
               <Divider orientation="vertical" flexItem></Divider>
             </ListItemIcon>
 
-            <ListItemText primary="safwendjebbi1234@gmail.com" />
+            <ListItemText primary="safwendjebbi1234@gmail.com" noWrap />
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
