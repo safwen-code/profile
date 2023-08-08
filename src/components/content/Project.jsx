@@ -19,6 +19,20 @@ import apprelease from './app-release.apk'
 import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown'
 import AirlineStopsIcon from '@mui/icons-material/AirlineStops'
 
+import { Tilt } from 'react-tilt'
+
+const defaultOptions = {
+  reverse: false, // reverse the tilt direction
+  max: 35, // max tilt rotation (degrees)
+  perspective: 1000, // Transform perspective, the lower the more extreme the tilt gets.
+  scale: 1.1, // 2 = 200%, 1.5 = 150%, etc..
+  speed: 1000, // Speed of the enter/exit transition
+  transition: true, // Set a transition on enter/exit.
+  axis: null, // What axis should be disabled. Can be X or Y.
+  reset: true, // If the tilt effect has to be reset on exit.
+  easing: 'cubic-bezier(.03,.98,.52,.99)', // Easing on enter/exit.
+}
+
 const Project = () => {
   const download = () => {
     window.location.href = apprelease
@@ -49,107 +63,115 @@ const Project = () => {
         mt={1}
       >
         <Grid item xs={12} sm={6}>
-          <Card sx={{ maxWidth: 345 }}>
-            <CardMedia
-              component="img"
-              alt="web dev"
-              height="100"
-              image={developpement}
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                Jungel Home
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                littel project that display planet of Jungel Home.
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Link
-                to="https://clever-cray-85c961.netlify.app/"
-                target="_blank"
-              >
-                {' '}
+          <Tilt options={defaultOptions}>
+            <Card sx={{ maxWidth: 345 }}>
+              <CardMedia
+                component="img"
+                alt="web dev"
+                height="100"
+                image={developpement}
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  Jungel Home
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  littel project that display planet of Jungel Home.
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Link
+                  to="https://clever-cray-85c961.netlify.app/"
+                  target="_blank"
+                >
+                  {' '}
+                  <Button size="small">
+                    Created 3 years ago{' '}
+                    <AirlineStopsIcon sx={{ marginLeft: '7px' }} />
+                  </Button>
+                </Link>
+              </CardActions>
+            </Card>
+          </Tilt>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <Tilt options={defaultOptions}>
+            <Card sx={{ maxWidth: 345 }}>
+              <CardMedia
+                component="img"
+                alt="backend dev"
+                height="100"
+                image={api}
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  Timilec Managment
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Project for manage team position of termodure group
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Link to="https://qrqc.netlify.app/" target="_blank">
+                  <Button size="small">
+                    Created 2years ago{' '}
+                    <AirlineStopsIcon sx={{ marginLeft: '7px' }} />
+                  </Button>
+                </Link>
+              </CardActions>
+            </Card>
+          </Tilt>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <Tilt options={defaultOptions}>
+            <Card sx={{ maxWidth: 345 }}>
+              <CardMedia
+                component="img"
+                alt="Ui & Managment"
+                height="100"
+                image={uimang}
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  Portfolio
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Create a portfolio with react.
+                </Typography>
+              </CardContent>
+              <CardActions>
                 <Button size="small">
-                  Created 3 years ago{' '}
-                  <AirlineStopsIcon sx={{ marginLeft: '7px' }} />
+                  You are here <AirlineStopsIcon sx={{ marginLeft: '7px' }} />
                 </Button>
-              </Link>
-            </CardActions>
-          </Card>
+              </CardActions>
+            </Card>
+          </Tilt>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <Card sx={{ maxWidth: 345 }}>
-            <CardMedia
-              component="img"
-              alt="backend dev"
-              height="100"
-              image={api}
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                Timilec Managment
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Project for manage team position of termodure group
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Link to="https://qrqc.netlify.app/" target="_blank">
-                <Button size="small">
-                  Created 2years ago{' '}
-                  <AirlineStopsIcon sx={{ marginLeft: '7px' }} />
+          <Tilt options={defaultOptions}>
+            <Card sx={{ maxWidth: 345 }}>
+              <CardMedia
+                component="img"
+                alt="Ui & Managment"
+                height="100"
+                image={uimang}
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  MovieDB
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Create a movieDB with react native.
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="small" onClick={download}>
+                  Created yesterday 2 week ago{' '}
+                  <ArrowCircleDownIcon sx={{ marginLeft: '7px' }} />
                 </Button>
-              </Link>
-            </CardActions>
-          </Card>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Card sx={{ maxWidth: 345 }}>
-            <CardMedia
-              component="img"
-              alt="Ui & Managment"
-              height="100"
-              image={uimang}
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                Portfolio
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Create a portfolio with react.
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small">
-                You are here <AirlineStopsIcon sx={{ marginLeft: '7px' }} />
-              </Button>
-            </CardActions>
-          </Card>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Card sx={{ maxWidth: 345 }}>
-            <CardMedia
-              component="img"
-              alt="Ui & Managment"
-              height="100"
-              image={uimang}
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                MovieDB
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Create a movieDB with react native.
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small" onClick={download}>
-                Created yesterday 2 week ago{' '}
-                <ArrowCircleDownIcon sx={{ marginLeft: '7px' }} />
-              </Button>
-            </CardActions>
-          </Card>
+              </CardActions>
+            </Card>
+          </Tilt>
         </Grid>
       </Grid>
     </>
