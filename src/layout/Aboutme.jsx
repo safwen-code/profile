@@ -26,6 +26,7 @@ import CloudDownloadIcon from '@mui/icons-material/CloudDownload'
 import './style.css'
 import cv from './cv.pdf'
 import { saveAs } from 'file-saver'
+import { IconButton } from '@mui/material'
 
 const style = {
   width: '100%',
@@ -100,23 +101,35 @@ const Aboutme = () => {
         </ListItem>
         <Divider />
         <ListItem sx={{ display: 'flex', justifyContent: 'center' }}>
-          <GitHubIcon
-            color="#212121"
-            fontSize="large"
-            sx={{ marginRight: '5px' }}
-          />
+          <IconButton href="https://github.com/safwen-code" target="_blank">
+            <GitHubIcon
+              color="#212121"
+              fontSize="large"
+              sx={{ marginRight: '5px' }}
+            />
+          </IconButton>
           <Divider orientation="vertical" flexItem></Divider>
-          <LinkedInIcon
-            color="info"
-            fontSize="large"
-            sx={{ marginRight: '5px', marginLeft: '5px' }}
-          />
+          <IconButton
+            href="https://www.linkedin.com/in/safwen-djebbi-5a996b204/"
+            target="_blank"
+          >
+            <LinkedInIcon
+              color="info"
+              fontSize="large"
+              sx={{ marginRight: '5px', marginLeft: '5px' }}
+            />
+          </IconButton>
           <Divider orientation="vertical" flexItem></Divider>
-          <FacebookIcon
-            color="primary"
-            fontSize="large"
-            sx={{ marginLeft: '5px' }}
-          />
+          <IconButton
+            href="https://www.facebook.com/profile.php?id=100078734872887"
+            target="_blank"
+          >
+            <FacebookIcon
+              color="primary"
+              fontSize="large"
+              sx={{ marginLeft: '5px' }}
+            />
+          </IconButton>
         </ListItem>
       </List>
       <List sx={{ border: 1, borderColor: 'secondary.main', borderRadius: 1 }}>
