@@ -21,8 +21,13 @@ import intercom from '../../images/intercom.png'
 import Modalskills from './Modalskills'
 import { useState } from 'react'
 
-import { openclassroomData, isetData } from '../../utils/fakedata'
-import { gomycodeData } from '../../utils/fakedata'
+import {
+  openclassroomData,
+  isetData,
+  bqubeData,
+  gomycodeData,
+  timelecData,
+} from '../../utils/fakedata'
 const styletitle = {
   fontZize: '2rem',
   fontWeight: 'bold',
@@ -36,6 +41,8 @@ const Devskills = (props) => {
     gomy: false,
     openclass: false,
     iset: false,
+    bqube: false,
+    timelec: false,
   })
   const hundelshow = (modalName) => {
     setopen((prevState) => ({
@@ -168,7 +175,7 @@ const Devskills = (props) => {
             </CardActions>
           </Card>
         </Grid>
-        {/* 
+
         <Grid item xs={12} sm={6}>
           <div style={styletitle}>Experience</div>
 
@@ -194,7 +201,17 @@ const Devskills = (props) => {
                 {' '}
                 Developpeur Full Stack
               </Typography>
-              <Button size="small">Show more</Button>
+              <Button size="small" onClick={() => hundelshow('bqube')}>
+                {' '}
+                More info
+              </Button>
+              {open && (
+                <Modalskills
+                  data={bqubeData}
+                  open={open.bqube}
+                  handleClose={() => handleClose('bqube')}
+                />
+              )}
             </CardActions>
           </Card>
           <Card sx={{ maxWidth: 345 }} style={{ marginBottom: '8px' }}>
@@ -219,7 +236,17 @@ const Devskills = (props) => {
                 {' '}
                 Operateur Du Montage
               </Typography>
-              <Button size="small">Show more</Button>
+              <Button size="small" onClick={() => hundelshow('timelec')}>
+                {' '}
+                More info
+              </Button>
+              {open && (
+                <Modalskills
+                  data={timelecData}
+                  open={open.timelec}
+                  handleClose={() => handleClose('timelec')}
+                />
+              )}
             </CardActions>
           </Card>
           <Divider light />
@@ -246,10 +273,20 @@ const Devskills = (props) => {
                 {' '}
                 Developpeur Full Stack (PFE)
               </Typography>
-              <Button size="small">Show more</Button>
+              <Button size="small" onClick={() => hundelshow('iset')}>
+                {' '}
+                More info
+              </Button>
+              {open && (
+                <Modalskills
+                  data={isetData}
+                  open={open.iset}
+                  handleClose={() => handleClose('iset')}
+                />
+              )}
             </CardActions>
           </Card>
-          <Card sx={{ maxWidth: 345 }} style={{ marginBottom: '8px' }}>
+          {/* <Card sx={{ maxWidth: 345 }} style={{ marginBottom: '8px' }}>
             <CardHeader
               title="Intercom Technologies"
               subheader="October 2017"
@@ -273,9 +310,9 @@ const Devskills = (props) => {
               </Typography>
               <Button size="small">Show more</Button>
             </CardActions>
-          </Card>
+          </Card> */}
 
-          <Card sx={{ maxWidth: 345 }} style={{ marginBottom: '8px' }}>
+          {/* <Card sx={{ maxWidth: 345 }} style={{ marginBottom: '8px' }}>
             <CardHeader
               title="SIMAC Tunisie"
               subheader="October 2016"
@@ -299,8 +336,8 @@ const Devskills = (props) => {
               </Typography>
               <Button size="small">Show more</Button>
             </CardActions>
-          </Card>
-        </Grid> */}
+          </Card> */}
+        </Grid>
       </Grid>
     </>
   )
