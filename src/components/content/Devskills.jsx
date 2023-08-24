@@ -13,7 +13,7 @@ import {
 import { deepOrange } from '@mui/material/colors'
 import gomy from '../../images/gomy.png'
 import iset from '../../images/iset.jpg'
-import open from '../../images/open.png'
+import openclass from '../../images/openclass.png'
 import bqube from '../../images/bqube.jpg'
 import tim from '../../images/tim.jpg'
 import simac from '../../images/simac.jpg'
@@ -21,6 +21,8 @@ import intercom from '../../images/intercom.png'
 import Modalskills from './Modalskills'
 import { useState } from 'react'
 
+import { openclassroomData, isetData } from '../../utils/fakedata'
+import { gomycodeData } from '../../utils/fakedata'
 const styletitle = {
   fontZize: '2rem',
   fontWeight: 'bold',
@@ -30,12 +32,22 @@ const styletitle = {
   textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)',
 }
 const Devskills = (props) => {
-  const [open, setopen] = useState(false)
-  const hundelshow = () => {
-    setopen(true)
+  const [open, setopen] = useState({
+    gomy: false,
+    openclass: false,
+    iset: false,
+  })
+  const hundelshow = (modalName) => {
+    setopen((prevState) => ({
+      ...prevState,
+      [modalName]: true,
+    }))
   }
-  const handleClose = () => {
-    setopen(false)
+  const handleClose = (modalName) => {
+    setopen((prevState) => ({
+      ...prevState,
+      [modalName]: false,
+    }))
   }
   return (
     <>
@@ -64,18 +76,25 @@ const Devskills = (props) => {
                 {' '}
                 Developpeur Full Stack
               </Typography>
-              <Button size="small" onClick={hundelshow}>
+              <Button size="small" onClick={() => hundelshow('gomy')}>
                 {' '}
                 More info
               </Button>
-              {open && <Modalskills open={open} handleClose={handleClose} />}
+              {open && (
+                <Modalskills
+                  data={gomycodeData}
+                  open={open.gomy}
+                  handleClose={() => handleClose('gomy')}
+                />
+              )}
             </CardActions>
           </Card>
+
           <Card sx={{ maxWidth: 345 }} style={{ marginBottom: '8px' }}>
             <CardHeader
               title="Open Classroom"
               subheader="October 2018, 2023"
-              avatar={<Avatar aria-label="recipe" src={open} />}
+              avatar={<Avatar aria-label="recipe" src={openclass} />}
             />
             <CardContent>
               <Typography variant="body2" color="text.secondary">
@@ -93,6 +112,17 @@ const Devskills = (props) => {
                 {' '}
                 Developpeur
               </Typography>
+              <Button size="small" onClick={() => hundelshow('openclass')}>
+                {' '}
+                More info
+              </Button>
+              {open && (
+                <Modalskills
+                  data={openclassroomData}
+                  open={open.openclass}
+                  handleClose={() => handleClose('openclass')}
+                />
+              )}
             </CardActions>
           </Card>
 
@@ -124,10 +154,21 @@ const Devskills = (props) => {
                 {' '}
                 Technicien Supérieur En Développment
               </Typography>
+              <Button size="small" onClick={() => hundelshow('iset')}>
+                {' '}
+                More info
+              </Button>
+              {open && (
+                <Modalskills
+                  data={isetData}
+                  open={open.iset}
+                  handleClose={() => handleClose('iset')}
+                />
+              )}
             </CardActions>
           </Card>
         </Grid>
-
+        {/* 
         <Grid item xs={12} sm={6}>
           <div style={styletitle}>Experience</div>
 
@@ -259,7 +300,7 @@ const Devskills = (props) => {
               <Button size="small">Show more</Button>
             </CardActions>
           </Card>
-        </Grid>
+        </Grid> */}
       </Grid>
     </>
   )
