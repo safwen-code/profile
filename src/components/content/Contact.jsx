@@ -12,6 +12,7 @@ const Contact = () => {
   })
 
   const [alertVisible, setAlertVisible] = useState(false)
+  const [errorField, seterrorField] = useState(false)
   const { name, email, message } = formdata
   const ChangeHundel = (e) => {
     setformdata({ ...formdata, [e.target.name]: e.target.value })
@@ -19,28 +20,39 @@ const Contact = () => {
   const submitHundel = (e) => {
     e.preventDefault()
     //console.log(Contact)
-    emailjs
-      .send(
-        'service_ctwp9zo',
-        'template_nf8js4z',
-        formdata,
-        'MCWeJugFmMWwVfeiC',
-      )
-      .then(
-        function (response) {
-          //console.log('SUCCESS!', response.status, response.text)
-          if (response.status === 200) {
-            setAlertVisible(true)
-            setTimeout(() => {
-              setAlertVisible(false)
-            }, 5000)
-          }
-        },
-        function (err) {
-          console.log('FAILED...', err)
-        },
-      )
-    console.log(formdata)
+    if (name === '' || email === '' || message === '') {
+      seterrorField(true)
+      setTimeout(() => {
+        seterrorField(false)
+      }, 5000)
+    } else {
+      emailjs
+        .send(
+          'service_ctwp9zo',
+          'template_nf8js4z',
+          formdata,
+          'MCWeJugFmMWwVfeiC',
+        )
+        .then(
+          function (response) {
+            //console.log('SUCCESS!', response.status, response.text)
+            if (response.status === 200) {
+              setAlertVisible(true)
+              setTimeout(() => {
+                setAlertVisible(false)
+              }, 5000)
+              setformdata({
+                name: '',
+                email: '',
+                message: '',
+              })
+            }
+          },
+          function (err) {
+            console.log('FAILED...', err)
+          },
+        )
+    }
   }
   return (
     <>
@@ -51,6 +63,9 @@ const Contact = () => {
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
           <TextField
+            error={name === '' && errorField}
+            helperText={errorField && name === '' ? 'Name is required' : ''}
+            required
             id="standard-read-only-input"
             label="your name please"
             variant="standard"
@@ -60,9 +75,13 @@ const Contact = () => {
             onChange={ChangeHundel}
             style={{ marginRight: '5px' }}
           />
+          .
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
+            error={email === '' && errorField}
+            helperText={errorField && email === '' ? 'Email is required' : ''}
+            required
             id="standard-read-only-input"
             label="your email please"
             variant="standard"
@@ -83,6 +102,11 @@ const Contact = () => {
           }}
         >
           <TextField
+            error={message === '' && errorField}
+            helperText={
+              errorField && message === '' ? 'message is required' : ''
+            }
+            required
             fullWidth
             label="message please"
             id="fullWidth"
