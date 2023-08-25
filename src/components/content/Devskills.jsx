@@ -27,6 +27,8 @@ import {
   bqubeData,
   gomycodeData,
   timelecData,
+  interData,
+  simacData,
 } from '../../utils/fakedata'
 const styletitle = {
   fontZize: '2rem',
@@ -36,13 +38,15 @@ const styletitle = {
   textAlign: 'center',
   textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)',
 }
-const Devskills = (props) => {
+const Devskills = () => {
   const [open, setopen] = useState({
     gomy: false,
     openclass: false,
     iset: false,
     bqube: false,
     timelec: false,
+    inter: false,
+    sim: false,
   })
   const hundelshow = (modalName) => {
     setopen((prevState) => ({
@@ -286,7 +290,7 @@ const Devskills = (props) => {
               )}
             </CardActions>
           </Card>
-          {/* <Card sx={{ maxWidth: 345 }} style={{ marginBottom: '8px' }}>
+          <Card sx={{ maxWidth: 345 }} style={{ marginBottom: '8px' }}>
             <CardHeader
               title="Intercom Technologies"
               subheader="October 2017"
@@ -308,11 +312,21 @@ const Devskills = (props) => {
                 {' '}
                 Technicien Supérieur
               </Typography>
-              <Button size="small">Show more</Button>
+              <Button size="small" onClick={() => hundelshow('inter')}>
+                {' '}
+                More info
+              </Button>
+              {open && (
+                <Modalskills
+                  data={interData}
+                  open={open.inter}
+                  handleClose={() => handleClose('inter')}
+                />
+              )}
             </CardActions>
-          </Card> */}
+          </Card>
 
-          {/* <Card sx={{ maxWidth: 345 }} style={{ marginBottom: '8px' }}>
+          <Card sx={{ maxWidth: 345 }} style={{ marginBottom: '8px' }}>
             <CardHeader
               title="SIMAC Tunisie"
               subheader="October 2016"
@@ -334,9 +348,19 @@ const Devskills = (props) => {
                 {' '}
                 Technicien
               </Typography>
-              <Button size="small">Show more</Button>
+              <Button size="small" onClick={() => hundelshow('sim')}>
+                {' '}
+                More info
+              </Button>
+              {open && (
+                <Modalskills
+                  data={simacData}
+                  open={open.sim}
+                  handleClose={() => handleClose('sim')}
+                />
+              )}
             </CardActions>
-          </Card> */}
+          </Card>
         </Grid>
       </Grid>
     </>
