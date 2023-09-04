@@ -13,7 +13,6 @@ import {
 
 import IconButton from '@mui/material/IconButton'
 import MenuIcon from '@mui/icons-material/Menu'
-import AdbIcon from '@mui/icons-material/Adb'
 import safwe from '../images/safwe.jpg'
 
 const pages = ['description', 'project', 'skills', 'SW.Skills', 'contact']

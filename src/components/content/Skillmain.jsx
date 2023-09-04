@@ -9,6 +9,8 @@ import {
   Legend,
 } from 'chart.js'
 import { Radar } from 'react-chartjs-2'
+import { Grid } from '@mui/material'
+import Carousel from './Carousel'
 
 ChartJS.register(
   RadialLinearScale,
@@ -19,7 +21,7 @@ ChartJS.register(
   Legend,
 )
 
-export const data = {
+const data = {
   labels: [
     'JS/Jquery/DOM',
     'React/Native',
@@ -33,7 +35,7 @@ export const data = {
   datasets: [
     {
       label: '# of Votes',
-      data: [8.5, 9.3, 7, 9, 7.5, 7.75, 6, 6.78],
+      data: [8.5, 9.3, 7, 9, 7.5, 7.75, 3, 6.78],
       backgroundColor: 'rgba(0, 160, 255, 0.22)',
       borderColor: 'rgba(0, 50, 255, 0.9)',
       borderWidth: 2,
@@ -42,6 +44,11 @@ export const data = {
 }
 
 const Skillmain = () => {
-  return <Radar data={data} />
+  return (
+    <>
+      <Carousel />
+      <Radar data={data} />
+    </>
+  )
 }
 export default Skillmain

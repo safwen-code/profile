@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   DialogActions,
   DialogContent,
@@ -6,6 +6,9 @@ import {
   Button,
   Dialog,
   Divider,
+  TextField,
+  ListItem,
+  ListItemText,
 } from '@mui/material'
 import IconButton from '@mui/material/IconButton'
 import CloseIcon from '@mui/icons-material/Close'
@@ -47,8 +50,32 @@ function BootstrapDialogTitle(props) {
 }
 
 const Modalskills = ({ open, handleClose, data }) => {
-  console.log(data)
+  const [liked, setliked] = useState(true)
+  //console.log(data)
   const { title, description } = data
+  const changeLiked = () => {
+    setliked(!liked)
+    console.log(liked)
+  }
+  const [comments, setcomments] = useState({
+    etat: false,
+    comment: [],
+  })
+  const { etat, comment } = comments
+  const changeComments = () => {
+    console.log(etat)
+    setcomments({ ...comments, etat: !etat })
+  }
+  const onchangeHundel = (e) => {
+    setcomments({ ...comments, comment: [e.target.value] })
+  }
+  const addcoments = () => {
+    let listcomment = comments.comment
+    console.log(listcomment)
+    handleClose()
+    setcomments({ ...comments, comment: [] })
+    // console.log(typeof comment)
+  }
   return (
     <BootstrapDialog
       onClose={handleClose}
@@ -62,17 +89,30 @@ const Modalskills = ({ open, handleClose, data }) => {
         <Typography gutterBottom>{description}</Typography>
         <Divider />
         <DialogContent sx={{ display: 'flex', justifyContent: 'center' }}>
-          <IconButton aria-label="add to favorites">
-            <FavoriteIcon color="error" />
+          <IconButton aria-label="add to favorites" onClick={changeLiked}>
+            <FavoriteIcon color={liked ? '#ffebee' : 'error'} />
           </IconButton>
-          <IconButton aria-label="add comment">
+          <IconButton aria-label="add comment" onClick={changeComments}>
             <InsertCommentOutlinedIcon />
           </IconButton>
         </DialogContent>
+        {etat && (
+          <TextField
+            id="standard-multiline-flexible"
+            label="Multiline"
+            multiline
+            maxRows={4}
+            name="comment"
+            value={comment}
+            onChange={onchangeHundel}
+            variant="standard"
+            fullWidth
+          />
+        )}
       </DialogContent>
       <DialogActions>
-        <Button autoFocus onClick={handleClose}>
-          Save changes
+        <Button autoFocus onClick={addcoments}>
+          Save Changes
         </Button>
       </DialogActions>
     </BootstrapDialog>
